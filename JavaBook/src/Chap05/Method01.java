@@ -1,0 +1,18 @@
+package Chap05;
+
+public class Method01 {
+	public static void method() {
+		System.out.println("static 메서드입니다.");
+		System.out.println(5+6);
+	}
+
+	public static void main(String[] args) {
+		//메인 메서드에서 함수 두번 호출
+		System.out.println("첫 번째 호출 메서드입니다.");
+		method();
+		
+		System.out.println("두 번째 호출 메서드입니다.");
+		method();
+	}
+
+}

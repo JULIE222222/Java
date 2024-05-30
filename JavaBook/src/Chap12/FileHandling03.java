@@ -1,0 +1,42 @@
+package Chap12;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Scanner;
+
+public class FileHandling03 {
+	public static void main(String[] args) {
+		File file = new File("member.txt"); //객체 생성
+
+		try {
+			if (!file.exists())
+				file.createNewFile();
+
+			FileWriter fw = new FileWriter(file); //FileWrite로 내용작성
+			Scanner input = new Scanner(System.in);
+
+			boolean quit = false;
+			while (!quit) {
+				System.out.println("아이디: ");
+				int userID = input.nextInt();
+				fw.write("아이디: " + userID + " ");
+				System.out.print("이름: ");
+				String userName = input.next();
+				fw.write("이름: " + userName + "\n");
+
+				System.out.println("계속 진행? Y|N");
+				input = new Scanner(System.in);
+				String str = input.nextLine();
+
+				if (str.toUpperCase().equals("N"))
+					quit = true;
+			}
+			fw.close();
+			System.out.println("파일 쓰기 성공");
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+
+}
